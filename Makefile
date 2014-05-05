@@ -1,4 +1,7 @@
 linkcheck:
 	linkchecker http://localhost:8080/
 
-.PHONY: linkcheck
+docker:
+	docker build -t="rla/blog-core-example" .
+
+.PHONY: linkcheck docker
