@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>{{= site }}/posts</loc>
+    </url>
+    <url>
+        <loc>{{= site }}/tags</loc>
+    </url>
+    {{ each posts, post }}
+        <url>
+            <loc>{{= site }}/{{= encode_path(post.slug) }}</loc>
+        </url>
+    {{ end }}
+    {{ each tags, tag }}
+        <url>
+            <loc>{{= site }}/tag/{{= encode_path(tag) }}</loc>
+        </url>
+    {{ end }}
+</urlset>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>{{= title }} - Atom feed</title>
+    <id>{{= site }}/atom</id>
+    <link rel="self" href="{{= site }}/atom"/>
+    <updated>{{= feed_date(updated) }}</updated>
+    {{ each entries, entry }}
+        <entry>
+            <id>{{= site }}/{{= encode_path(entry.slug) }}</id>
+            <title>{{= entry.title }}</title>
+            <updated>{{= feed_date(entry.date_published) }}</updated>
+            <author>
+                <name>{{= feed_author(entry.author) }}</name>
+            </author>
+            <link rel="alternate" href="{{= site }}/{{= encode_path(entry.slug) }}" />
+            <content type="html">{{= entry.html }}</content>
+        </entry>
+    {{ end }}
+</feed>
