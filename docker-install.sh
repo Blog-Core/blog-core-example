@@ -3,6 +3,28 @@
 set -o errexit
 set -o nounset
 
+# Make debconf not complain about
+# us not using terminal.
+
+export DEBIAN_FRONTEND=noninteractive
+
+apt-get update
+
+# Install extra tools for aptitude.
+
+apt-get install -y curl
+apt-get install -y python-software-properties
+
+apt-add-repository -y ppa:swi-prolog/devel
+apt-get update
+apt-get install -y swi-prolog-nox
+
+# Remove cruft
+
+apt-get clean
+
+rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 # Obtain the Swi-Prolog installation path.
 
 eval `swipl --dump-runtime-variables`
@@ -53,3 +75,5 @@ tar -xf "$TMP/$PACK_LIST_UTIL" -C "$TMP" prolog
 # Install into Swi.
 
 cp -v -r "$TMP/prolog/"* "$PLBASE/library"
+
+rm -rf "$TMP"
