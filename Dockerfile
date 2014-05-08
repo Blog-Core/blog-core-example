@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM mndrix/swipl:latest
 
 MAINTAINER Raivo Laanemets version: 0.1
 
@@ -13,4 +13,4 @@ WORKDIR /example
 
 ENV PL_ENV production
 
-CMD ["/usr/bin/swipl", "-s", "/example/main.pl", "--", "--fork=false", "--port=80", "--user=nobody"]
+CMD ["swipl", "-s", "/example/main.pl", "--", "--fork=false", "--port=80", "--user=nobody"]
