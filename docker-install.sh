@@ -41,7 +41,7 @@ readonly PACK_BLOG_CORE=blog_core-0.0.1.tgz
 readonly PACK_DICT_SCHEMA=dict_schema-0.0.2.tgz
 readonly PACK_DOCSTORE=docstore-1.0.1.tgz
 readonly PACK_MARKDOWN=markdown-0.0.2.tgz
-readonly PACK_SIMPLE_TEMPLATE=simple_template-0.2.0.tgz
+readonly PACK_SIMPLE_TEMPLATE=simple_template-0.3.0.tgz
 readonly PACK_SORT_DICT=sort_dict-0.0.3.tgz
 readonly PACK_LIST_UTIL=list_util-0.3.0.tgz
 
