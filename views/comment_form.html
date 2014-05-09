@@ -1,0 +1,19 @@
+<noscript>Commenting requires JavaScript support</noscript>
+<form class="comment-form" id="comment-form" style="display: none">
+    <input type="hidden" name="question" value="0" id="comment-question">
+    <input type="hidden" name="post-id" value="{{= post.'$id' }}" id="post-id">
+    <label for="comment-author">Author</label><br>
+    <input type="text" name="author" placeholder="Your name" id="comment-author"><br>
+    <label for="comment-email">Email (may be left blank)</label><br>
+    <input type="text" name="email" placeholder="Your email" id="comment-email"><br>
+    <label for="comment-website">Website (may be left blank)</label><br>
+    <input type="text" name="site" placeholder="http://" id="comment-website"><br>
+    <label for="comment-message">Message</label> <small>(URLs (<strong>max 3</strong>) starting
+        with http:// or https:// can be used.)</small><br>
+    <textarea name="message" placeholder="Your comment" id="comment-message" rows="10" cols="60"></textarea>
+    <label for="comment-answer" id="comment-answer-label"></label><br>
+    <input type="text" name="answer" placeholder="Your answer" id="comment-answer"><br>
+    <button type="submit">Send</button>
+</form>
+<ul id="comment-errors"></ul>
+<script src="/t-{{= cache_token }}/comment.js"></script>

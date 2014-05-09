@@ -1,0 +1,15 @@
+<article class="summary">
+    <h3><a href="/post/{{= encode_path(slug) }}">{{= title }}</a></h3>
+    <div class="meta">
+        <div class="date">
+            On <time datetime="{{= iso_date(date_published) }}">{{= format_date(date_published) }}</time>
+        </div>
+        <div class="tags">
+            <ul role="navigation">
+                {{ each tags, tag, i, n }}
+                    <li><a href="/tag/{{= encode_path(tag) }}" class="tag">{{= tag }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</article>

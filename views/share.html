@@ -1,0 +1,24 @@
+<h3>Share</h3>
+<p>
+    Share the article link:<br>
+    <code id="url">http://example.blog-core.net/{{= encode_path(post.slug) }}</code>
+    <script>
+        var url = document.getElementById('url');
+
+        url.onclick = function() {
+
+            if (window.getSelection) {
+
+                var range = document.createRange();
+                range.selectNode(url);
+                window.getSelection().addRange(range);
+
+            } else if (document.selection) {
+
+                var range = document.body.createTextRange();
+                range.moveToElementText(url);
+                range.select();
+            }
+        }
+    </script>
+</p>

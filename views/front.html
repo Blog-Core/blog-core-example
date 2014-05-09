@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{ include head }}
+    <body>
+        <div class="container">
+            {{ include header }}
+            <main>
+                <article>
+                    {{- about.html }}
+                </article>
+                <h2>Recent posts</h2>
+                {{ each posts, post }}
+                    {{ include summary, post }}
+                {{ end }}
+            </main>
+            {{ include footer }}
+        </div>
+    </body>
+</html>

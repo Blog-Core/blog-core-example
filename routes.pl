@@ -2,12 +2,33 @@
 
 /** <module> The application routes */
 
+:- use_module(library(http/http_wrapper)).
+:- use_module(library(http/http_dispatch)).
 :- use_module(library(arouter)).
 :- use_module(sitemap).
 :- use_module(feed).
+:- use_module(post).
+:- use_module(front).
 
-% FIXME add more specific routes last:
-% https://github.com/rla/alternative-router/issues/4
+% Page for single post.
+
+:- route_get(post/Slug, send_post(Slug)).
+
+% Similar for a page. Reuses post logics.
+
+:- route_get(page/Slug, send_post(Slug)).
+
+% Page with the list of all posts.
+
+:- route_get(posts, send_all_posts).
+
+% Page with posts related to the tag.
+
+:- route_get(tag/Tag, send_tag(Tag)).
+
+% The front page.
+
+:- route_get(/, send_front).
 
 % The XML sitemap.
 

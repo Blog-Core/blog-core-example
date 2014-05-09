@@ -1,0 +1,12 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    {{ if description \= "" }}
+        <meta name="description" content="{{= description }}">
+    {{ end }}
+    <title>{{= title }}</title>
+    <!--[if lt IE 9]><script src="/html5shiv-printshiv.min.js"></script><![endif]-->
+    <link rel="alternate" href="/atom" type="application/atom+xml">
+    <link rel="stylesheet" href="/t-{{= cache_token }}/style.css">
+    <link rel="stylesheet" href="/t-{{= cache_token }}/print.css" media="print">
+</head>

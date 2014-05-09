@@ -1,0 +1,21 @@
+<h3>Comments</h3>
+{{ if comments = [] }}
+    <p>No comments have been added so far.</p>
+{{ end }}
+<div class="comments">
+    {{ each comments, comment }}
+        <article class="comment" id="comment-{{= comment.'$id' }}">
+            <div class="comment-meta">
+                {{ if comment.site = "" }}
+                    <span class="comment-author">{{= comment.author }}</span>
+                {{ else }}
+                    <span class="comment-author"><a href="{{= comment.site }}" rel="nofollow">{{= comment.author }}</a></span>
+                {{ end }} at <time datetime="{{= iso_date(comment.date) }}">{{= format_date(comment.date) }}</time>
+            </div>
+            <div class="comment-message">
+                {{- comment.html }}
+            </div>
+        </article>
+        <hr>
+    {{ end }}
+</div>

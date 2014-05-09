@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{ include head }}
+    <body>
+        <div class="container">
+            {{ include header }}
+            <main>
+                <article itemscope itemtype="http://schema.org/Article" class="post-page">
+                    <h2 itemprop="name">{{= post.title }}</h2>
+                    <div class="meta">
+                        {{ if post.type = "post" }}
+                            <div class="date">
+                                On <time itemprop="datePublished" datetime="{{= iso_date(post.date_published) }}">
+                                    {{= format_date(post.date_published) }}</time>
+                            </div>
+                        {{ else }}
+                            <div class="date">
+                                Updated <time itemprop="dateModified" datetime="{{= iso_date(post.date_updated) }}">
+                                    {{= format_date(post.date_updated) }}</time>
+                            </div>
+                        {{ end }}
+                        <div class="byline">By
+                            <div class="author">
+                                {{ if author.link \= "" }}
+                                    <a itemprop="author" href="{{= author.link }}">{{= author.fullname }}</a>
+                                {{ else }}
+                                    <span itemprop="author">{{= author.fullname }}</span>
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ if post.tags \= [] }}
+                            <div class="tags">
+                                <ul role="navigation">
+                                    {{ each post.tags, tag, i, n }}
+                                        <li><a href="/tag/{{= encode_path(tag) }}" class="tag">{{= tag }}</a></li>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                        {{ end }}
+                    </div>
+                    <hr>
+                    <div itemprop="articleBody" class="body">
+                        {{- post.html }}
+                    </div>
+                    {{ if post.type = "post" }}
+                        <hr>
+                        {{ include share }}
+                        {{ if post.commenting }}
+                            {{ include comments }}
+                            {{ include comment_form }}
+                        {{ end }}
+                    {{ end }}
+                </article>
+            </main>
+            {{ include footer }}
+        </div>
+    </body>
+</html>
