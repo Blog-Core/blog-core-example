@@ -2,8 +2,6 @@
 
 /** <module> The application routes */
 
-:- use_module(library(http/http_wrapper)).
-:- use_module(library(http/http_dispatch)).
 :- use_module(library(arouter)).
 :- use_module(sitemap).
 :- use_module(feed).
