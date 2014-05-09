@@ -10,6 +10,7 @@
 :- use_module(library(http/http_dispatch)).
 :- use_module(library(docstore)).
 :- use_module(library(sort_dict)).
+:- use_module(library(dict_schema)).
 :- use_module(library(bc/bc_view)).
 :- use_module(library(st/st_expr)).
 :- use_module(config).
@@ -88,3 +89,19 @@ format_date(Date, Formatted):-
 
 iso_date(Ts, Date):-
     format_time(atom(Date), '%F', Ts).
+
+% Overrides standard comment to include
+% email and site.
+
+:- register_schema(comment, _{
+    type: dict,
+    tag: comment,
+    keys: _{
+        author: _{ type: string, min_length: 1 },
+        content: _{ type: string, min_length: 1 },
+        question: integer,
+        answer: atom,
+        email: string,
+        site: string
+    }
+}).
