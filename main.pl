@@ -3,8 +3,8 @@
 /** <module> The main module */
 
 :- use_module(library(bc/bc_main)).
-:- use_module(routes).
-:- use_module(config).
+:- use_module(lib/routes).
+:- use_module(lib/config).
 
 % Initializes the serving daemon.
 

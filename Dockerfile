@@ -1,11 +1,10 @@
-FROM mndrix/swipl:latest
+FROM mndrix/swipl:7.1.34
 
-MAINTAINER Raivo Laanemets version: 0.1
+MAINTAINER Raivo Laanemets
 
-ADD ./blog-core-example.tar /example
+RUN swipl -g 'Os=[interactive(false)],pack_install(blog_core,Os),pack_install(list_util,Os),halt' -t 'halt(1)'
 
-ADD ./docker-install.sh /tmp/docker-install.sh
-RUN /bin/bash /tmp/docker-install.sh
+ADD . /example
 
 EXPOSE 80
 
@@ -13,4 +12,4 @@ WORKDIR /example
 
 ENV PL_ENV production
 
-CMD ["swipl", "-s", "/example/main.pl", "--", "--fork=false", "--port=80", "--user=nobody"]
+CMD ["swipl", "-s", "/example/main.pl", "--", "--workers=16", "--port=80"]
