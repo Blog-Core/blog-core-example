@@ -28,3 +28,5 @@ changes will cause merge conflicts.
 ## License
 
 The MIT License.
+
+The cat image in the example data: [http://en.wikipedia.org/wiki/Odd-eyed_cat#/media/File:June_odd-eyed-cat_cropped.jpg](Creative Commons Attribution 2.0 Generic).
