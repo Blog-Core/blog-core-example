@@ -1,0 +1,138 @@
+begin.
+assertz(col(config,'f2135cc0-ab5a-48fa-af97-620f90dedb96')).
+assertz(eav('f2135cc0-ab5a-48fa-af97-620f90dedb96',name,title)).
+assertz(eav('f2135cc0-ab5a-48fa-af97-620f90dedb96',value,'Untitled site')).
+assertz(col(migration,'638918fe-f841-4ba2-a1cf-e36f9c5521d2')).
+assertz(eav('638918fe-f841-4ba2-a1cf-e36f9c5521d2',description,'Inserts the initial config')).
+assertz(eav('638918fe-f841-4ba2-a1cf-e36f9c5521d2',name,bc_initial_config)).
+end.
+begin.
+assertz(col(user,'aa1fed43-441d-4180-aee9-63d1864bf960')).
+assertz(eav('aa1fed43-441d-4180-aee9-63d1864bf960',fullname,'Admin')).
+assertz(eav('aa1fed43-441d-4180-aee9-63d1864bf960',key,'1e58534a-c494-49e7-a63e-74fa06bfb8c3')).
+assertz(eav('aa1fed43-441d-4180-aee9-63d1864bf960',link,"")).
+assertz(eav('aa1fed43-441d-4180-aee9-63d1864bf960',password,'24e95689adb6eab6289183ee9184f56b3ed47458b39bf335030b5080370c37b8')).
+assertz(eav('aa1fed43-441d-4180-aee9-63d1864bf960',salt,'33e36eb2-d810-4e10-a9bd-f21b5fb87012')).
+assertz(eav('aa1fed43-441d-4180-aee9-63d1864bf960',type,admin)).
+assertz(eav('aa1fed43-441d-4180-aee9-63d1864bf960',username,'admin@example.com')).
+assertz(col(migration,'d410be23-1420-47ee-a0b2-ca04190772b6')).
+assertz(eav('d410be23-1420-47ee-a0b2-ca04190772b6',description,'Inserts the initial user')).
+assertz(eav('d410be23-1420-47ee-a0b2-ca04190772b6',name,bc_initial_user)).
+end.
+begin.
+assertz(col(config,'c8c6be64-94fe-426b-a123-b3fffb0c1f2e')).
+assertz(eav('c8c6be64-94fe-426b-a123-b3fffb0c1f2e',name,default_language)).
+assertz(eav('c8c6be64-94fe-426b-a123-b3fffb0c1f2e',value,en)).
+assertz(col(migration,'a793c161-729a-4aee-a7d3-bb8bf6406730')).
+assertz(eav('a793c161-729a-4aee-a7d3-bb8bf6406730',description,'Adds language to posts')).
+assertz(eav('a793c161-729a-4aee-a7d3-bb8bf6406730',name,bc_add_language)).
+end.
+begin.
+assertz(col(config,'3b13279e-df20-412c-a841-572ee6c5302f')).
+assertz(eav('3b13279e-df20-412c-a841-572ee6c5302f',name,smtp_enabled)).
+assertz(eav('3b13279e-df20-412c-a841-572ee6c5302f',value,false)).
+assertz(col(config,'2d7387d6-dcc4-457a-a6fb-7ca8e065748f')).
+assertz(eav('2d7387d6-dcc4-457a-a6fb-7ca8e065748f',name,smtp_host)).
+assertz(eav('2d7387d6-dcc4-457a-a6fb-7ca8e065748f',value,localhost)).
+assertz(col(config,'ffbe6596-6b2a-4ded-a420-ad8468c26243')).
+assertz(eav('ffbe6596-6b2a-4ded-a420-ad8468c26243',name,smtp_user)).
+assertz(eav('ffbe6596-6b2a-4ded-a420-ad8468c26243',value,user)).
+assertz(col(config,'0d98e696-1e63-40e9-af41-f6c8314c78fd')).
+assertz(eav('0d98e696-1e63-40e9-af41-f6c8314c78fd',name,smtp_password)).
+assertz(eav('0d98e696-1e63-40e9-af41-f6c8314c78fd',value,password)).
+assertz(col(config,'387192d7-294e-43f3-a82f-f670c2908e0f')).
+assertz(eav('387192d7-294e-43f3-a82f-f670c2908e0f',name,smtp_auth)).
+assertz(eav('387192d7-294e-43f3-a82f-f670c2908e0f',value,login)).
+assertz(col(migration,'3a1a9249-d163-4221-acd8-e4b91cfd99e0')).
+assertz(eav('3a1a9249-d163-4221-acd8-e4b91cfd99e0',description,'Adds SMTP settings')).
+assertz(eav('3a1a9249-d163-4221-acd8-e4b91cfd99e0',name,bc_smtp_settings)).
+end.
+begin.
+retractall(eav('aa1fed43-441d-4180-aee9-63d1864bf960',files,_G12727)).
+assertz(col(migration,'e244ab6b-ec21-4d22-a982-900e9986ff02')).
+assertz(eav('e244ab6b-ec21-4d22-a982-900e9986ff02',description,'Removes files key from users')).
+assertz(eav('e244ab6b-ec21-4d22-a982-900e9986ff02',name,bc_remove_files)).
+end.
+begin.
+assertz(col(entry,'ffdb42e5-aa92-45d8-a26f-d5b929102750')).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',author,'aa1fed43-441d-4180-aee9-63d1864bf960')).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',commenting,true)).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',content,"The test post for the [Blog-Core](http://blog-core.net) example project.")).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',content_type,markdown)).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',date_published,1430870400)).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',date_updated,1430870400)).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',description,"The test post for the Blog-Core example.")).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',html,"\n\n<p>\nThe test post for the <a href=\"http://blog-core.net\">Blog-Core</a> example project.</p>")).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',language,"en")).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',published,true)).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',slug,'hello-world')).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',tags,[])).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',title,"Hello World")).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',type,post)).
+end.
+begin.
+end.
+begin.
+assertz(col(entry,'5ac6a7f7-9da0-4eb4-a8d6-955014afe410')).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',author,'aa1fed43-441d-4180-aee9-63d1864bf960')).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',commenting,true)).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',content,"## About\n\nThis is the [Blog-Core](http://blog-core.net) example project.")).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',content_type,markdown)).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',date_published,1430870400)).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',date_updated,1430870400)).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',description,"The Blog-Core example project.")).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',html,"\n\n<h2>About</h2>\n\n<p>\nThis is the <a href=\"http://blog-core.net\">Blog-Core</a> example project.</p>")).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',language,"en")).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',published,false)).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',slug,about)).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',tags,[])).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',title,"about")).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',type,block)).
+end.
+begin.
+assertz(col(entry,'42fa73bc-1a58-49c4-a7ef-c310f7e8bd93')).
+assertz(eav('42fa73bc-1a58-49c4-a7ef-c310f7e8bd93',author,'aa1fed43-441d-4180-aee9-63d1864bf960')).
+assertz(eav('42fa73bc-1a58-49c4-a7ef-c310f7e8bd93',commenting,true)).
+assertz(eav('42fa73bc-1a58-49c4-a7ef-c310f7e8bd93',content,"This is a test page.")).
+assertz(eav('42fa73bc-1a58-49c4-a7ef-c310f7e8bd93',content_type,markdown)).
+assertz(eav('42fa73bc-1a58-49c4-a7ef-c310f7e8bd93',date_published,1430870400)).
+assertz(eav('42fa73bc-1a58-49c4-a7ef-c310f7e8bd93',date_updated,1430870400)).
+assertz(eav('42fa73bc-1a58-49c4-a7ef-c310f7e8bd93',description,"This is a test page.")).
+assertz(eav('42fa73bc-1a58-49c4-a7ef-c310f7e8bd93',html,"\n\n<p>\nThis is a test page.</p>")).
+assertz(eav('42fa73bc-1a58-49c4-a7ef-c310f7e8bd93',language,"en")).
+assertz(eav('42fa73bc-1a58-49c4-a7ef-c310f7e8bd93',published,true)).
+assertz(eav('42fa73bc-1a58-49c4-a7ef-c310f7e8bd93',slug,'test-page')).
+assertz(eav('42fa73bc-1a58-49c4-a7ef-c310f7e8bd93',tags,[])).
+assertz(eav('42fa73bc-1a58-49c4-a7ef-c310f7e8bd93',title,"Test page")).
+assertz(eav('42fa73bc-1a58-49c4-a7ef-c310f7e8bd93',type,page)).
+end.
+begin.
+retractall(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',content,_G1902)).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',content,"## About\n\nThis is the [Blog-Core](http://blog-core.net) example project. Visit the [admin](/admin) interface to edit the contents.")).
+retractall(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',html,_G1902)).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',html,"\n\n<h2>About</h2>\n\n<p>\nThis is the <a href=\"http://blog-core.net\">Blog-Core</a> example project. Visit the <a href=\"/admin\">admin</a> interface to edit the contents.</p>")).
+end.
+begin.
+retractall(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',content,_G2835)).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',content,"## About\n\nThis is the [Blog-Core](http://blog-core.net) example project. Visit the [admin](/admin) interface to edit the contents (credentials are admin@example.com/admin).")).
+retractall(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',html,_G2835)).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',html,"\n\n<h2>About</h2>\n\n<p>\nThis is the <a href=\"http://blog-core.net\">Blog-Core</a> example project. Visit the <a href=\"/admin\">admin</a> interface to edit the contents (credentials are admin@example.com/admin).</p>")).
+end.
+begin.
+retractall(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',content,_G4177)).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',content,"## About\n\nThis is the [Blog-Core](http://blog-core.net) example project. Visit the [admin](/admin) interface to edit the contents.\n\nCredentials:\n\n * Username: admin@example.com\n * Password: admin")).
+retractall(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',html,_G4177)).
+assertz(eav('5ac6a7f7-9da0-4eb4-a8d6-955014afe410',html,"\n\n<h2>About</h2>\n\n<p>\nThis is the <a href=\"http://blog-core.net\">Blog-Core</a> example project. Visit the <a href=\"/admin\">admin</a> interface to edit the contents.</p>\n\n<p>\nCredentials:</p>\n<ul>\n<li>Username: admin@example.com</li>\n<li>Password: admin</li>\n</ul>\n")).
+end.
+begin.
+retractall(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',content,_G2332)).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',content,"The test post for the [Blog-Core](http://blog-core.net) example project.\n\nImages can be added to post. A cat:\n\n[!A cat](/hello-world/cat.jpg)")).
+retractall(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',html,_G2332)).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',html,"\n\n<p>\nThe test post for the <a href=\"http://blog-core.net\">Blog-Core</a> example project.</p>\n\n<p>\nImages can be added to post. A cat:</p>\n\n<p>\n<a href=\"/hello-world/cat.jpg\">!A cat</a></p>")).
+end.
+begin.
+retractall(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',content,_G2377)).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',content,"The test post for the [Blog-Core](http://blog-core.net) example project.\n\nImages can be added to post. A cat:\n\n![A cat](/hello-world/cat.jpg)")).
+retractall(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',html,_G2377)).
+assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',html,"\n\n<p>\nThe test post for the <a href=\"http://blog-core.net\">Blog-Core</a> example project.</p>\n\n<p>\nImages can be added to post. A cat:</p>\n\n<p>\n<img src=\"/hello-world/cat.jpg\" alt=\"A cat\"></p>")).
+end.
