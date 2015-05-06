@@ -18,7 +18,7 @@ The site can be accessed from <http://localhost:8080>.
 
 ## Running with docker
 
-    docker run -t -p 8080:80 blog_core/demo
+    docker run -t -p 8080:80 blogcore/demo
 
 The site can be accessed from <http://localhost:8080>.
 

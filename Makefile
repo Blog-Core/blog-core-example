@@ -4,7 +4,7 @@ linkcheck:
 	linkchecker http://localhost:8080/
 
 docker:
-	docker build -t="blog_core/demo" .
+	docker build -t="blogcore/demo" .
 
 check:
 	jshint public/comment.js
