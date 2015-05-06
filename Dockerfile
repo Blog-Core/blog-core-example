@@ -1,4 +1,4 @@
-FROM mndrix/swipl:7.1.34
+FROM mndrix/swipl:7.1.37
 
 MAINTAINER Raivo Laanemets
 
