@@ -29,4 +29,4 @@ changes will cause merge conflicts.
 
 The MIT License.
 
-The cat image in the example data: [http://en.wikipedia.org/wiki/Odd-eyed_cat#/media/File:June_odd-eyed-cat_cropped.jpg](Creative Commons Attribution 2.0 Generic).
+The cat image in the example data: [Creative Commons Attribution 2.0 Generic](http://en.wikipedia.org/wiki/Odd-eyed_cat#/media/File:June_odd-eyed-cat_cropped.jpg).
