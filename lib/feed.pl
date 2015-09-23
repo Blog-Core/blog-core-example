@@ -36,7 +36,7 @@ send_feed:-
 :- st_set_function(feed_author, 1, feed_author).
 
 feed_author(Id, Fullname):-
-    ds_get(Id, [fullname], User),
+    ds_col_get(user, Id, [fullname], User),
     Fullname = User.fullname.
 
 % Function to format date in feed.

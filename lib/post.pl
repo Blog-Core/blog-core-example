@@ -24,7 +24,7 @@
 send_post(Slug):-
     (   ds_find(entry, slug=Slug, [Post])
     ->  post_comments(Post.'$id', Comments),
-        ds_get(Post.author, Author),
+        ds_col_get(user, Post.author, Author),
         bc_view_send(views/post, _{
             post: Post,
             comments: Comments,
