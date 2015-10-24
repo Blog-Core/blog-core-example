@@ -34,4 +34,4 @@ send_front:-
 recent_posts(Recent):-
     ds_find(entry, (type=post, published=true), Posts),
     sort_dict(date_published, desc, Posts, Sorted),
-    take(Sorted, 10, Recent).
+    take(10, Sorted, Recent).

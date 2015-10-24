@@ -20,7 +20,7 @@
 send_feed:-
     ds_find(entry, (type=post, published=true), Posts),
     sort_dict(date_published, desc, Posts, Sorted),
-    take(Sorted, 25, Recent),
+    take(25, Sorted, Recent),
     feed_update_date(Recent, Date),
     config(site, Site),
     config(title, Title),
