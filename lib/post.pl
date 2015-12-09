@@ -13,6 +13,7 @@
 :- use_module(library(dict_schema)).
 :- use_module(library(bc/bc_view)).
 :- use_module(library(st/st_expr)).
+
 :- use_module(config).
 
 %! send_post(+Slug) is det.

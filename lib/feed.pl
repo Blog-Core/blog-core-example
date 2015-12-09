@@ -6,10 +6,11 @@
 
 :- use_module(library(docstore)).
 :- use_module(library(st/st_expr)).
-:- use_module(library(list_util)).
 :- use_module(library(sort_dict)).
 :- use_module(library(bc/bc_view)).
+
 :- use_module(config).
+:- use_module(take_prefix).
 
 %! send_feed is det.
 %
@@ -20,7 +21,7 @@
 send_feed:-
     ds_find(entry, (type=post, published=true), Posts),
     sort_dict(date_published, desc, Posts, Sorted),
-    take(25, Sorted, Recent),
+    take_prefix(25, Sorted, Recent),
     feed_update_date(Recent, Date),
     config(site, Site),
     config(title, Title),

@@ -136,3 +136,25 @@ assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',content,"The test post for th
 retractall(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',html,_G2377)).
 assertz(eav('ffdb42e5-aa92-45d8-a26f-d5b929102750',html,"\n\n<p>\nThe test post for the <a href=\"http://blog-core.net\">Blog-Core</a> example project.</p>\n\n<p>\nImages can be added to post. A cat:</p>\n\n<p>\n<img src=\"/hello-world/cat.jpg\" alt=\"A cat\"></p>")).
 end.
+begin.
+assertz(col(config,'e7a4044e-7957-45af-a06f-46b6cd3a32ec')).
+assertz(eav('e7a4044e-7957-45af-a06f-46b6cd3a32ec',name,smtp_security)).
+assertz(eav('e7a4044e-7957-45af-a06f-46b6cd3a32ec',value,none)).
+assertz(col(migration,'b2f15f79-8d79-4fc3-aa7e-5f943fdd2c00')).
+assertz(eav('b2f15f79-8d79-4fc3-aa7e-5f943fdd2c00',description,'Adds smtp_security configuration parameter')).
+assertz(eav('b2f15f79-8d79-4fc3-aa7e-5f943fdd2c00',name,bc_smtp_security)).
+end.
+begin.
+assertz(col(config,'2e0ff6ff-0a9b-4ef7-a1c0-7d5318bd00e1')).
+assertz(eav('2e0ff6ff-0a9b-4ef7-a1c0-7d5318bd00e1',name,smtp_from)).
+assertz(eav('2e0ff6ff-0a9b-4ef7-a1c0-7d5318bd00e1',value,'admin@example.com')).
+assertz(col(migration,'511fc314-5d25-4e1d-a885-f7862a56e517')).
+assertz(eav('511fc314-5d25-4e1d-a885-f7862a56e517',description,'Adds smtp_from configuration parameter')).
+assertz(eav('511fc314-5d25-4e1d-a885-f7862a56e517',name,bc_smtp_from)).
+end.
+begin.
+assertz(eav('aa1fed43-441d-4180-aee9-63d1864bf960',comment_notifications,true)).
+assertz(col(migration,'6c262dcd-07f9-4c52-ab25-1cae18231f7d')).
+assertz(eav('6c262dcd-07f9-4c52-ab25-1cae18231f7d',description,'Adds option for users to receive comment notifications')).
+assertz(eav('6c262dcd-07f9-4c52-ab25-1cae18231f7d',name,bc_comment_notifications)).
+end.

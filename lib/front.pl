@@ -6,9 +6,10 @@
 
 :- use_module(library(docstore)).
 :- use_module(library(sort_dict)).
-:- use_module(library(list_util)).
 :- use_module(library(bc/bc_view)).
+
 :- use_module(config).
+:- use_module(take_prefix).
 
 %! send_front is det.
 %
@@ -34,4 +35,4 @@ send_front:-
 recent_posts(Recent):-
     ds_find(entry, (type=post, published=true), Posts),
     sort_dict(date_published, desc, Posts, Sorted),
-    take(10, Sorted, Recent).
+    take_prefix(10, Sorted, Recent).
