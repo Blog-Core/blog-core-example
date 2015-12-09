@@ -1,6 +1,6 @@
 # Blog-Core example project
 
-Codebase for [Blog-Core demo](http://blog-core.net/page/demo). Requires SWI-Prolog version 7.1.34 or newer.
+Codebase for [Blog-Core demo](http://blog-core.net/page/demo). Requires SWI-Prolog version 7.3.12 or newer.
 
 ## Installing dependecies
 
