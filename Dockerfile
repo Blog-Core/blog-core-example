@@ -9,7 +9,7 @@ RUN swipl -g "Os=[interactive(false)],pack_install('http://packs.rlaanemets.com/
 RUN swipl -g "Os=[interactive(false)],pack_install('http://packs.rlaanemets.com/simple-template/simple_template-1.0.1.tgz',Os),halt" -t "halt(1)"
 RUN swipl -g "Os=[interactive(false)],pack_install('http://packs.rlaanemets.com/sort-dict/sort_dict-0.0.3.tgz',Os),halt" -t "halt(1)"
 RUN swipl -g "Os=[interactive(false)],pack_install('http://www.swi-prolog.org/download/pack/smtp-0.9.4.tgz',Os),halt" -t "halt(1)"
-RUN swipl -g "Os=[interactive(false)],pack_install('http://packs.rlaanemets.com/blog-core/blog_core-0.0.13.tgz',Os),halt" -t "halt(1)"
+RUN swipl -g "Os=[interactive(false)],pack_install('http://packs.rlaanemets.com/blog-core/blog_core-0.0.14.tgz',Os),halt" -t "halt(1)"
 
 ADD . /example
 
