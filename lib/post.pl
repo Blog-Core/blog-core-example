@@ -94,7 +94,7 @@ iso_date(Ts, Date):-
 % Overrides standard comment to include
 % email and site.
 
-:- register_schema(comment, _{
+:- register_schema(bc_comment, _{
     type: dict,
     tag: comment,
     keys: _{
