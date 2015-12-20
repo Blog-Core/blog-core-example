@@ -1,10 +1,13 @@
 # Blog-Core example project
 
-Codebase for [Blog-Core demo](http://blog-core.net/page/demo). Requires SWI-Prolog version 7.3.12 or newer.
+Codebase for [Blog-Core demo](http://blog-core.net/page/demo). Requires
+SWI-Prolog version 7.3.12 or newer.
 
 ## Installing dependecies
 
-    swipl -g 'Os=[interactive(false)],pack_install(blog_core,Os),pack_install(list_util,Os),halt' -t 'halt(1)'
+See the Blog-Core installation [page][deps].
+
+[deps]:http://blog-core.net/page/installation
 
 ## Running
 
