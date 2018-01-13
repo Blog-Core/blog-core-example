@@ -37,11 +37,29 @@ user:message_hook(Term, _, _):-
 :- use_module(library(bc/bc_type)).
 :- use_module(lib/routes).
 :- use_module(lib/config).
+:- use_module(library(bc/bc_router)).
+:- use_module(library(bc/bc_data)).
+:- use_module(library(http/http_unix_daemon)).
+:- use_module(library(http/thread_httpd)).
 
 % Enables preview for posts.
 
 :- bc_register_preview(post, '/post/<slug>').
 
-% Initializes the serving daemon.
+% Initialize the serving daemon.
 
-:- config(db, File), bc_main(File).
+http_unix_daemon:http_server_hook(Options):-
+    http_server(bc_route, Options).
+
+:- dynamic(started/0).
+
+start:-
+    started, !.
+
+start:-
+    config(db, File),
+    bc_data_open(File),
+    http_daemon,
+    assertz(started).
+
+:- start.
