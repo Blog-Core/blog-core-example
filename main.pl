@@ -4,34 +4,17 @@
 
 :- use_module(library(bc/bc_env)).
 
-% Catch uncaught errors/warnings and shut down
+:- dynamic(started/0).
+
+% Catch uncaught errors/warnings before start and shut down
 % when they occur.
 
-:- dynamic(loading/1).
-:- asserta(loading(0)).
-
-% The first hook is for detecting
-% loading state.
-
-user:message_hook(Term, _, _):-
-    (   Term = load_file(start(Level, _))
-    ->  asserta(loading(Level))
-    ;   (   Term = load_file(done(Level, _, _, _, _, _))
-        ->  retractall(loading(Level))
-        ;   true)),
-    fail.
-
-% The second hook shuts down SWI when
-% error occurs during loading.
-
-:- if(bc_env_production).
-    user:message_hook(Term, Type, _):-
-        loading(_),
-        ( Type = error ; Type = warning ),
-        message_to_string(Term, String),
-        writeln(user_error, String),
-        halt(1).
-:- endif.
+user:message_hook(Term, Type, _):-
+    \+ started,
+    ( Type = error ; Type = warning ),
+    message_to_string(Term, String),
+    writeln(user_error, String),
+    halt(1).
 
 :- use_module(library(bc/bc_main)).
 :- use_module(library(bc/bc_type)).
@@ -49,9 +32,8 @@ user:message_hook(Term, _, _):-
 % Initialize the serving daemon.
 
 http_unix_daemon:http_server_hook(Options):-
-    http_server(bc_route, Options).
-
-:- dynamic(started/0).
+    http_server(bc_route, Options),
+    assertz(started).
 
 start:-
     started, !.
@@ -59,7 +41,6 @@ start:-
 start:-
     config(db, File),
     bc_data_open(File),
-    http_daemon,
-    assertz(started).
+    http_daemon.
 
 :- start.
