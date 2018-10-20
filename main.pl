@@ -31,16 +31,8 @@ user:message_hook(Term, Type, _):-
 
 % Initialize the serving daemon.
 
-http_unix_daemon:http_server_hook(Options):-
-    http_server(bc_route, Options),
-    assertz(started).
-
-start:-
-    started, !.
-
-start:-
+http_unix_daemon:http_server_hook(Options):-    
+    assertz(started),
     config(db, File),
     bc_data_open(File),
-    http_daemon.
-
-:- start.
+    http_server(bc_route, Options).
